@@ -11,15 +11,15 @@ assignees: ''
 작업 사항을 입력해 주세요.
 ---
 
-Description
+## Description
 ---
 설명을 작성하세요.
 
-Todo
+## Todo
 ---
 - [ ] todo
 - [x] todo
 
-ETC
+## ETC
 ---
 기타 사항
