@@ -13,6 +13,14 @@ public class CartController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("cart action triggered");
+        String command = e.getActionCommand();
+        if(command.equals("addBurger"))
+            System.out.println("You selected a burger");
+        else if(command.equals("addCoke"))
+            System.out.println("You selected a coke");
+        else if(command.equals("addFries"))
+            System.out.println("You selected fries");
+        else if(command.equals("confirm"))
+            System.out.println("You confirmed your choices");
     }
 }
