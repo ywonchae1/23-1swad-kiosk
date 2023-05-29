@@ -1,10 +1,9 @@
-import cartpack.*;
+import displaypack.MainScreen;
 
 public class Main {
     public static void main(String[] args) {
-        CartView view = new CartView();
-        CartController controller = new CartController(view);
-
-        view.setVisible(true);
+        MainScreen mainScreen = new MainScreen();
+        mainScreen.displayFood();
+        mainScreen.setVisible(true); //화면을 보이도록 설정
     }
 }

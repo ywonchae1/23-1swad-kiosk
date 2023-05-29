@@ -1,4 +1,4 @@
-package cartpack;
+package paypack;
 import javax.swing.JOptionPane;
 
 public class CustomerInfo {

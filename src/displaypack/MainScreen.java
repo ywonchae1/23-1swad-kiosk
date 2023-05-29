@@ -1,11 +1,16 @@
-package cartpack;
+package displaypack;
+
+import cartpack.Cart;
+import foodpack.Food;
+import paypack.Payment;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainScreen extends JFrame{
+public class MainScreen extends JFrame {
     private List<Food> foodList; //음식 목록
     private Cart cart;
 
@@ -224,11 +229,5 @@ public class MainScreen extends JFrame{
     public int enterCouponNumber() {
         String couponNumberString = JOptionPane.showInputDialog(null, "쿠폰 번호를 입력하세요:");
         return Integer.parseInt(couponNumberString);
-    }
-
-    public static void main(String[] args) {
-        MainScreen mainScreen = new MainScreen();
-        mainScreen.displayFood();
-        mainScreen.setVisible(true); //화면을 보이도록 설정
     }
 }

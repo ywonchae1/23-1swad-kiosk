@@ -1,4 +1,4 @@
-package cartpack;
+package foodpack;
 
 public class Food {
     private String foodName; //Food 이름

@@ -1,11 +1,13 @@
 package cartpack;
+import foodpack.Food;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
     private List<Food> foodList;
 
-    public  Cart(){
+    public Cart() {
         foodList = new ArrayList<>();
     }
 
@@ -42,7 +44,7 @@ public class Cart {
         return foodList;
     }
 
-    public int calcTotalPrice(){
+    public int calcTotalPrice() {
         int totalPrice = 0;
         for (Food food : foodList) {
             totalPrice += (food.getPrice() * food.getQuantity());;
