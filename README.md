@@ -1,65 +1,44 @@
-# 23-1swad-kiosk
+## 23-1swad-kiosk
 
-```java
-//HelloWorldSwing.java
-package start;
+### 🚀Kiosk Project
 
-import javax.swing.*;        
+- Select Foods
 
-public class HelloWorldSwing {
-    private static void createAndShowGUI() {
-	//Create and set up the window.
-	JFrame frame = new JFrame("HelloWorldSwing");
-	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+- Deselect Foods
 
-	//Add the ubiquitous "Hello World" label.
-	JLabel label = new JLabel("Hello World");
-	frame.getContentPane().add(label);
+- Buy selections
 
-	//Display the window.
-	frame.pack();
-	frame.setVisible(true);
-    }
+- Use coupons
 
-    public static void main(String[] args) {
-	//Schedule a job for the event-dispatching thread:
-	//creating and showing this application's GUI.
-	javax.swing.SwingUtilities.invokeLater(new Runnable() {
-		public void run() {
-		    createAndShowGUI();
-		}
-	});
-    }
-}
+<img src="https://github.com/ywonchae1/23-1swad-kiosk/assets/79977182/5af598be-6a73-485c-b173-8fb3b7daee5f" width="70%">
+
+```
+git clone https://github.com/ywonchae1/23-1swad-kiosk.git .
+git pull
+git status
+...작업...
+git push
 ```
 
-1. start 폴더 밑 HelloWorldSwing.java 파일 생성
-
-2. 컴파일: `javac start/HelloWorldSwing.java`
-
-	- java 설치 안 된 경우
-
-	- 	```
-		sudo apt update
-		java -version
-		sudo apt install default-jre
-		java -version
-		sudo apt install default-jdk
-		java -version
-		```
-
-3. 실행: swad-kiosk 폴더에서 `java start.HelloWorldSwing`
-
-	![aWindow](https://github.com/ywonchae1/23-1swad-kiosk/assets/79977182/7d8ca882-e52c-4db8-ba14-58175eb19705)
-
-
-### 폴더 구조
+<span>
+<img src="https://github.com/ywonchae1/23-1swad-kiosk/assets/79977182/1f0a32c0-3ddb-4924-8669-215f9f454878" width="45%">
+<img src="https://github.com/ywonchae1/23-1swad-kiosk/assets/79977182/2c6d9d55-696d-4897-b3f8-27caca54e00a" width="45%">
+</span>
 
 ```
 📦 swad-kiosk
+├─ .gitignore
 ├─ README.md
-└─ 📂 start
-	├─ HelloWorldSwing.java
-	├─ HelloWorldSwing.class
-	└─ 'HelloWorldSwing$1.class'
+├─ 📂 out
+|   ├─ Main.class
+|   └─ 📂 cartpack
+|       ├─ CartController.class
+|       ├─ CartModel.class
+|       └─ CartView.class
+└─ 📂 src
+    ├─ Main.java
+    └─ 📂 cartpack
+        ├─ CartController.java
+        ├─ CartModel.java
+        └─ CartView.java
 ```
