@@ -61,7 +61,7 @@ public class MainScreen extends JFrame {
         //버튼 색상 설정
         paymentBtn.setBackground(Color.pink);
         cancelBtn.setBackground(Color.LIGHT_GRAY);
-    
+
         //결제 버튼 이벤트 리스너 설정
         paymentBtn.addActionListener(e -> displayPaymentOptions());
         //취소 버튼 이벤트 리스너 설정
@@ -198,29 +198,31 @@ public class MainScreen extends JFrame {
     //장바구니에 음식 담기
     public void addToCart(Food food, int quantity) {
         boolean existingItem = false;
+        boolean is_added = false;
         //장바구니에 동일한 음식이 있는지 확인
         for (Food cartFood : cart.getFoodList()) {
             if (cartFood.getFoodName().equals(food.getFoodName())) {
-                //동일한 음식이 있다면 수량을 더해줌
-                cartFood.setQuantity(cartFood.getQuantity() + quantity);
+                is_added = cart.addFood(cartFood, quantity);
                 existingItem = true;
                 break;
             }
         }
        //장바구니에 동일한 음식이 없는 경우 추가
         if (!existingItem) {
-            cart.addFood(food, quantity);
+            is_added = cart.addFood(food, quantity);
         }
 
-        System.out.println("장바구니에 " + food.getFoodName() + " " + quantity + "개 추가되었습니다.");
+        if (is_added)
+            System.out.println("장바구니에 " + food.getFoodName() + " " + quantity + "개 추가되었습니다.");
         displayCart(); //장바구니 내용 표시
         updateCartTable(); //장바구니 테이블 업데이트
     }
 
     //장바구니에서 음식 제거
     public void removeFromCart(Food food, int quantity) {
-        cart.removeFood(food, quantity);
-        System.out.println("장바구니에서 " + food.getFoodName() + " " + quantity + "개 제거되었습니다. ");
+        boolean is_removed = cart.removeFood(food, quantity);
+        if (is_removed)
+            System.out.println("장바구니에서 " + food.getFoodName() + " " + quantity + "개 제거되었습니다. ");
         displayCart();
         updateCartTable();
     }
