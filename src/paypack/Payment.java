@@ -1,6 +1,5 @@
 package paypack;
 import cartpack.Cart;
-import displaypack.MainScreen;
 
 import javax.swing.JOptionPane;
 
@@ -21,6 +20,13 @@ public class Payment {
     public void processing(Cart cart) {
         int totalPrice = cart.calcTotalPrice(); //장바구니 가격 총 계산
         System.out.println(totalPrice);
+
+        if (totalPrice <= 0) {
+            System.out.println("결제 실패: 장바구니에 상품이 없습니다.");
+            JOptionPane.showMessageDialog(null, "결제 실패: 장바구니에 상품이 없습니다.");
+            return;
+        }
+
         switch (paymentMethod) {
             case "포인트":
                 String phoneNumber = JOptionPane.showInputDialog("전화번호로 조회하기");
