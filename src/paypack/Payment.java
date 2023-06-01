@@ -18,13 +18,13 @@ public class Payment {
         finalPrice = 0;
     }
 
-    public void processing(Cart cart){
+    public void processing(Cart cart) {
         int totalPrice = cart.calcTotalPrice(); //장바구니 가격 총 계산
         System.out.println(totalPrice);
         switch (paymentMethod) {
             case "포인트":
                 String phoneNumber = JOptionPane.showInputDialog("전화번호로 조회하기");
-                if(phoneNumber.equals("010-1234-5678")) {
+                if (phoneNumber.equals("010-1234-5678")) {
                     CustomerInfo customerInfo = new CustomerInfo(phoneNumber, "1234", 250);
                     int usedPoint = calcUserPoint(totalPrice, customerInfo);
                     finalPrice = calcFinalPrice(totalPrice, usedPoint); // 포인트 적용하여 최종 결제 금액 계산
@@ -60,7 +60,7 @@ public class Payment {
         }
     }
 
-    private int calcUserPoint(int totalPrice, CustomerInfo customerInfo){
+    private int calcUserPoint(int totalPrice, CustomerInfo customerInfo) {
         int availablePoint = customerInfo.getPoint(); //사용 가능한 포인트
         int usedPoint = Math.min(availablePoint, totalPrice); //사용할 포인트 (최대로 사용 가능한 포인트는 최종 결제 금액)
 
@@ -82,8 +82,7 @@ public class Payment {
 
     //쿠폰 번호 유효성 체크
     private boolean checkCouponValidity() {
-        MainScreen mainScreen = new MainScreen();
-        couponNumber = mainScreen.enterCouponNumber();
+        couponNumber = enterCouponNumber();
         int[][] validCoupons = {{1111, 4000}, {1112, 5000}, {1113, 6000}, {1114, 7000}, {1115, 8000}, {1116, 9000}, {1117, 10000}}; //쿠폰 번호와 금액이 저장된 2차원 배열
         for (int[] coupon : validCoupons) {
             if (coupon[0] == couponNumber) { //쿠폰 번호가 일치하는 경우
@@ -99,8 +98,7 @@ public class Payment {
         if (checkCouponValidity() == true) { //쿠폰이 유효한 경우
             paymentComplete = true; //결제 완료
         } else { //쿠폰이 유효하지 않은 경우
-            MainScreen mainScreen = new MainScreen();
-            mainScreen.displayPrompt("쿠폰번호가 유효하지 않습니다. "); //메인스크린에 출력
+            displayPrompt("쿠폰번호가 유효하지 않습니다. "); //메인스크린에 출력
             paymentComplete = false; //결제 실패
         }
     }
@@ -114,5 +112,18 @@ public class Payment {
     //최종 결제 금액 반환
     public int getFinalPrice() {
         return finalPrice;
+    }
+
+    //프롬프트 메시지 표시
+    public void displayPrompt(String message) {
+        System.out.println(message);
+        JOptionPane.showMessageDialog(null, message);
+    }
+
+    //쿠폰 번호 입력
+    public int enterCouponNumber() {
+        String couponNumberString = JOptionPane.showInputDialog(null, "쿠폰 번호를 입력하세요:");
+        return Integer.parseInt(couponNumberString);
+
     }
 }

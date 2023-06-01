@@ -224,10 +224,4 @@ public class MainScreen extends JFrame {
         displayCart();
         updateCartTable();
     }
-
-    //쿠폰 번호 입력
-    public int enterCouponNumber() {
-        String couponNumberString = JOptionPane.showInputDialog(null, "쿠폰 번호를 입력하세요:");
-        return Integer.parseInt(couponNumberString);
-    }
 }
