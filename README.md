@@ -29,16 +29,19 @@ git push
 📦 swad-kiosk
 ├─ .gitignore
 ├─ README.md
-├─ 📂 out
-|   ├─ Main.class
-|   └─ 📂 cartpack
-|       ├─ CartController.class
-|       ├─ CartModel.class
-|       └─ CartView.class
+├─ swad-kiosk.iml
+├─ 📂 .github
+├─ 📂 .idea
 └─ 📂 src
     ├─ Main.java
-    └─ 📂 cartpack
-        ├─ CartController.java
-        ├─ CartModel.java
-        └─ CartView.java
+    ├─ 📂 cartpack
+    |   └─ Cart.java
+    ├─ 📂 displaypack
+    |   └─ MainScreen.java
+    ├─ 📂 foodpack
+    |   └─ Food.java
+    └─ 📂 paypack
+        ├─ CustomerInfo.java
+        ├─ Payment.java
+        └─ Print.java
 ```
