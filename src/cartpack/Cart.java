@@ -40,7 +40,10 @@ public class Cart {
         if (foodList.contains(food)) { // 음식이 장바구니에 있는지 확인
             int currentQuantity = food.getQuantity(); // 현재 음식의 수량
             if (quantity > currentQuantity) { // 선택한 수량이 장바구니에 담긴 수량보다 많은 경우
-                System.out.println("선택하신 수량이 장바구니에 담긴 " + food.getFoodName() + "의 재고보다 많습니다. 장바구니에서 모든 수량을 제거합니다.");
+                System.out.println(
+                        "선택하신 수량이 장바구니에 담긴 "
+                                + food.getFoodName()
+                                + "의 재고보다 많습니다. 장바구니에서 모든 수량을 제거합니다.");
                 quantity = currentQuantity; // 장바구니에 담긴 수량으로 제한하여 모두 제거
             }
             food.setQuantity(currentQuantity - 1); // 음식의 수량 감소
@@ -62,7 +65,7 @@ public class Cart {
     public int calcTotalPrice() {
         int totalPrice = 0;
         for (Food food : foodList) {
-            totalPrice += (food.getPrice() * food.getQuantity());;
+            totalPrice += (food.getPrice() * food.getQuantity());
         }
         return totalPrice;
     }

@@ -34,7 +34,10 @@ public class Payment {
                     CustomerInfo customerInfo = new CustomerInfo(phoneNumber, "1234", 250);
                     int usedPoint = calcUserPoint(totalPrice, customerInfo);
                     finalPrice = calcFinalPrice(totalPrice, usedPoint); // 포인트 적용하여 최종 결제 금액 계산
-                    JOptionPane.showMessageDialog(null, "포인트 결제 성공 | 보유 포인트: " + customerInfo.getPoint());
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "포인트 결제 성공 | 보유 포인트: "
+                                    + customerInfo.getPoint());
                     if (finalPrice > 0)
                         payCredit(finalPrice);
                     break;
@@ -89,7 +92,10 @@ public class Payment {
     //쿠폰 번호 유효성 체크
     private boolean checkCouponValidity() {
         couponNumber = enterCouponNumber();
-        int[][] validCoupons = {{1111, 4000}, {1112, 5000}, {1113, 6000}, {1114, 7000}, {1115, 8000}, {1116, 9000}, {1117, 10000}}; //쿠폰 번호와 금액이 저장된 2차원 배열
+        int[][] validCoupons = {
+                {1111, 4000}, {1112, 5000},
+                {1113, 6000}, {1114, 7000},
+                {1115, 8000}, {1116, 9000}, {1117, 10000}}; //쿠폰 번호와 금액이 저장된 2차원 배열
         for (int[] coupon : validCoupons) {
             if (coupon[0] == couponNumber) { //쿠폰 번호가 일치하는 경우
                 finalPrice -= coupon[1]; //결제 금액에서 쿠폰 금액 할인
